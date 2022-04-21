@@ -51,4 +51,20 @@ public class CarsTest {
         assertThat(cars.totalCurPosition()).isEqualTo(0);
     }
 
+    @DisplayName("우승자 찾기 테스트")
+    @Test
+    void findWinnerTest() {
+        //given
+        String[] names = new String[]{"pobi", "woni"};
+        MovableStrategy movableStrategy = () -> RandomNumber.generate(4, 9) >= 4;
+        Cars cars = Cars.of(names, movableStrategy);
+
+        // when
+        cars.move();
+        String winners = cars.findWinners(1);
+
+        // then
+        assertThat(winners.split(",").length).isEqualTo(2);
+    }
+
 }

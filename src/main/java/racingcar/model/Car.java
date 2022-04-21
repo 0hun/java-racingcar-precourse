@@ -29,4 +29,13 @@ public class Car {
             this.position += 1;
         }
     }
+
+    public boolean isWinner(int round) {
+        if (this.curPosition() == round) {
+            return true;
+        }
+
+        return false;
+    }
+
 }

@@ -2,17 +2,14 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Cars {
 
-    List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
-    }
-
-    public List<Car> getCars() {
-        return cars;
     }
 
     public static Cars of(String[] names, MovableStrategy movableStrategy) {
@@ -44,4 +41,18 @@ public class Cars {
 
         return totalCurPosition;
     }
+
+    public String findWinners(int round) {
+        StringJoiner joiner = new StringJoiner(",");
+
+        for (Car car : cars) {
+            if (car.isWinner(round)) {
+                String name = car.getName();
+                joiner.add(name);
+            }
+        }
+
+        return joiner.toString();
+    }
+
 }
