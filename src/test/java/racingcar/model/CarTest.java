@@ -21,17 +21,32 @@ public class CarTest {
         assertThat(car.getName()).isEqualTo(name);
     }
 
-    @DisplayName("자동차 이동 테스트")
+    @DisplayName("자동차 이동 성공 테스트")
     @Test
-    void carMoveTest() {
+    public void carMoveTest() {
         // given
-        Car car = new Car("pobi");
+        MovableStrategy movableStrategy = () -> RandomNumber.generate(4, 9) >= 4;
+        Car car = new Car("pobi", movableStrategy);
 
         // when
         car.move();
 
         // then
-        assertThat(car.curPosition()).isGreaterThan(0);
+        assertThat(car.curPosition()).isEqualTo(1);
+    }
+
+    @DisplayName("자동차 이동 실패 테스트")
+    @Test
+    public void carMoveTestFail() {
+        // given
+        MovableStrategy movableStrategy = () -> RandomNumber.generate(1, 3) >= 4;
+        Car car = new Car("pobi", movableStrategy);
+
+        // when
+        car.move();
+
+        // then
+        assertThat(car.curPosition()).isEqualTo(0);
     }
 
 }

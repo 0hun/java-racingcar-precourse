@@ -1,14 +1,19 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
 
     private final String name;
     private int position;
 
+    private MovableStrategy movableStrategy;
+
     public Car(String name) {
         this.name = name;
+    }
+
+    public Car(String name, MovableStrategy movableStrategy) {
+        this.name = name;
+        this.movableStrategy = movableStrategy;
     }
 
     public String getName() {
@@ -20,9 +25,7 @@ public class Car {
     }
 
     public void move() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-
-        if (randomNumber >= 4) {
+        if (movableStrategy.isMovable()) {
             this.position += 1;
         }
     }
