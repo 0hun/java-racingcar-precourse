@@ -46,13 +46,22 @@ public class Cars {
         StringJoiner joiner = new StringJoiner(",");
 
         for (Car car : cars) {
-            if (car.isWinner(round)) {
-                String name = car.getName();
-                joiner.add(name);
-            }
+            joiner = findWinner(car, round, joiner);
         }
 
         return joiner.toString();
     }
 
+    public StringJoiner findWinner(Car car, int round, StringJoiner joiner) {
+        if (car.isWinner(round)) {
+            String name = car.getName();
+            joiner.add(name);
+        }
+
+        return joiner;
+    }
+
+    public List<Car> cars() {
+        return cars;
+    }
 }
