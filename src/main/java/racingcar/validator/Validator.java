@@ -29,7 +29,7 @@ public class Validator {
     }
 
     public static void validatorNamesEmpty(String[] inputNames) {
-        if (inputNames == null) {
+        if (inputNames == null || inputNames[0].equals("")) {
             throw new IllegalArgumentException(MessageUtil.VALIDATOR_NAMES_MESSAGE);
         }
     }
