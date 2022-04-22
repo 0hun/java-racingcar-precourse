@@ -16,7 +16,7 @@ public class Cars {
         List<Car> cars = new ArrayList<>();
 
         for (String name : names) {
-            cars.add(new Car(name, movableStrategy));
+            cars.add(Car.of(name, movableStrategy));
         }
 
         return new Cars(cars);

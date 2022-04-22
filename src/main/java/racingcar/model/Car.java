@@ -16,6 +16,10 @@ public class Car {
         this.movableStrategy = movableStrategy;
     }
 
+    public static Car of(String name, MovableStrategy movableStrategy) {
+        return new Car(name, movableStrategy);
+    }
+
     public String getName() {
         return name;
     }
