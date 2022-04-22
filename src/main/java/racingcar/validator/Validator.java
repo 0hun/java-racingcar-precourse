@@ -42,7 +42,7 @@ public class Validator {
 
     public static void validatorNameLength(String inputName) {
         if (inputName.length() > VALIDATOR_NAME_SIZE) {
-            throw new IllegalArgumentException(MessageUtil.VALIDATOR_NAMES_MESSAGE);
+            throw new IllegalArgumentException(MessageUtil.VALIDATOR_EXCEEDED_NAMES_MESSAGE);
         }
     }
 
