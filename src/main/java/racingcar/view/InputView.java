@@ -18,7 +18,7 @@ public class InputView {
             Validator.validatorRound(round);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            inputRound();
+            return inputRound();
         }
 
         return Integer.parseInt(round);
@@ -34,7 +34,7 @@ public class InputView {
             Validator.validatorNames(names);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            inputNames();
+            return inputNames();
         }
 
         return names;
